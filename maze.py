@@ -3,6 +3,7 @@ import math
 from queue import PriorityQueue
 import numpy as np
 
+
 WIDTH = 800
 
 WIN = pygame.display.set_mode((WIDTH, WIDTH))
@@ -310,7 +311,7 @@ def reset(grid,rows):
 
 
 def main(win,width):
-    ROWS = 80 # define the number of rows and columns for the grid
+    ROWS = 20 # define the number of rows and columns for the grid
     grid = make_grid(ROWS,width)
 
     # start and end represent the start and goal of the maze
@@ -386,8 +387,24 @@ def main(win,width):
                 elif spot.is_barrier():
                     spot.reset()
 
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE: # if the user presses the spacebar
+            elif event.type == pygame.KEYDOWN: # user presses a key
+                if event.key == pygame.K_b: # if the user presses the letter b
+                    if start and end: # if there is a start and end set run the algorithm
+                        started = True
+                        pathfound = bfs(start, end, win, grid, ROWS, width)
+                        if pathfound:
+                            trace_path(start,end,win,grid,ROWS,width)
+                    else:
+                        pass
+                elif event.key == pygame.K_d: # if the user presses the letter b
+                    if start and end: # if there is a start and end set run the algorithm
+                        started = True
+                        pathfound = dfs(start, end, win, grid, ROWS, width)
+                        if pathfound:
+                            trace_path(start,end,win,grid,ROWS,width)
+                    else:
+                        pass
+                elif event.key == pygame.K_a: # if the user presses the letter b
                     if start and end: # if there is a start and end set run the algorithm
                         started = True
                         pathfound = aStar(start, end, win, grid, ROWS, width)
