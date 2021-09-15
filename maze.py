@@ -306,6 +306,8 @@ def reset(grid,rows):
             curr.unvisit()
             curr.set_parent(None)
             curr.clear_neighbors()
+            curr.g = np.inf
+            curr.f = np.inf
             if curr.is_closed() or curr.is_path():
                 curr.reset()
 
@@ -388,28 +390,17 @@ def main(win,width):
                     spot.reset()
 
             elif event.type == pygame.KEYDOWN: # user presses a key
-                if event.key == pygame.K_b: # if the user presses the letter b
-                    if start and end: # if there is a start and end set run the algorithm
-                        started = True
-                        pathfound = bfs(start, end, win, grid, ROWS, width)
-                        if pathfound:
-                            trace_path(start,end,win,grid,ROWS,width)
-                    else:
-                        pass
-                elif event.key == pygame.K_d: # if the user presses the letter b
-                    if start and end: # if there is a start and end set run the algorithm
-                        started = True
-                        pathfound = dfs(start, end, win, grid, ROWS, width)
-                        if pathfound:
-                            trace_path(start,end,win,grid,ROWS,width)
-                    else:
-                        pass
-                elif event.key == pygame.K_a: # if the user presses the letter b
-                    if start and end: # if there is a start and end set run the algorithm
-                        started = True
+                if start and end:
+                    started = True
+                    pathFound = None
+                    if event.key == pygame.K_b: # if the user presses the letter b
+                        pathFound = bfs(start, end, win, grid, ROWS, width)
+                    elif event.key == pygame.K_d: # if the user presses the letter b
+                        pathFound = dfs(start, end, win, grid, ROWS, width)
+                    elif event.key == pygame.K_a: # if the user presses the letter b
                         pathfound = aStar(start, end, win, grid, ROWS, width)
-                        if pathfound:
-                            trace_path(start,end,win,grid,ROWS,width)
+                    if pathfound:
+                        trace_path(start,end,win,grid,ROWS,width)
                     else:
                         pass
     pygame.quit()
