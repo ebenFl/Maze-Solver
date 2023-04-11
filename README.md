@@ -21,4 +21,4 @@ The search will be illustrated by red squares and the path to the finish from th
 
 After running your algorithm you can reset the search results by clicking r and clear the maze by clicking c.
 
-![](https://github.com/Maze-Solver/MazeExample.gif)
+![](https://github.com/ebenFl/Maze-Solver/blob/master/MazeExample.gif)
