@@ -1,7 +1,7 @@
 # Maze-Solver
 Python program that illustrates different search algorithms on an interactive grid.
 
-Do use this program you must have the numpy, math, pygame, and queue libraries.
+To use this program you must have the numpy, math, pygame, and queue libraries.
 
 The maze is represented on a grid displayed by the program.
 
