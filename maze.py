@@ -396,7 +396,7 @@ def main(win,width):
                             trace_path(start,end,win,grid,ROWS,width)
                     else:
                         pass
-                elif event.key == pygame.K_d: # if the user presses the letter b
+                elif event.key == pygame.K_d: # if the user presses the letter d
                     if start and end: # if there is a start and end set run the algorithm
                         started = True
                         pathfound = dfs(start, end, win, grid, ROWS, width)
