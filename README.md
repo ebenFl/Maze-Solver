@@ -21,4 +21,7 @@ The search will be illustrated by red squares and the path to the finish from th
 
 After running your algorithm you can reset the search results by clicking r and clear the maze by clicking c.
 
+If you want to adjust the grid size edit and dimensions of the app edit the WIDTH variable at the top
+of maze.py and the rows variable at the top of the main funciton.
+
 ![](https://github.com/ebenFl/Maze-Solver/blob/master/MazeExample.gif)
